@@ -1,0 +1,58 @@
+.s2-title {
+  margin: 26px 0 4px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.s2-sub {
+  margin: 0 0 36px;
+  color: var(--ink-3);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.opts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--raise);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 15px 15px;
+  cursor: pointer;
+}
+.opt .dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--ink-3);
+  flex: none;
+}
+.opt .name {
+  font-size: 15.5px;
+  font-weight: 500;
+}
+.opt .hint {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+.opt.on {
+  border-color: var(--go);
+  background: rgba(52, 209, 122, 0.09);
+}
+.opt.on .dot {
+  border-color: var(--go);
+  background: radial-gradient(circle, var(--go) 0 45%, transparent 46%);
+}
+.opt.on .name {
+  color: var(--ink);
+}
+.s2-spacer {
+  flex: 1;
+}
