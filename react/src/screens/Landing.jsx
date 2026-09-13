@@ -9,7 +9,7 @@ export default function Landing({ onStart, sessionActive, onResume }) {
       <div className="s1-body">
         <h2>Control the bot. Don’t let it control you.</h2>
         <p>See how you prompt. <br />Get feedback to get better at it.</p>
-      </div>
+      </div> 
 
       <button className="btn btn-go" type="button" onClick={onStart}>
         Start Tracking*
