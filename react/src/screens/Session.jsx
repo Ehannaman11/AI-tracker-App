@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Logo from "../Logo.jsx";
+import BackLink from "../BackLink.jsx";
 import "./Session.css";
 
 const TIPS = [
@@ -16,7 +17,7 @@ function fmt(totalSeconds) {
   return `${m < 10 ? "0" : ""}${m}:${s < 10 ? "0" : ""}${s}`;
 }
 
-export default function Session({ minutes, onStop }) {
+export default function Session({ minutes, onStop, onBack }) {
   const isVariable = minutes === 0;
   const [remaining, setRemaining] = useState(isVariable ? 0 : minutes * 60);
   const [elapsed, setElapsed] = useState(0);
@@ -50,7 +51,10 @@ export default function Session({ minutes, onStop }) {
   return (
     <div className="screen">
       <div className="top-row">
-        <Logo />
+        <div className="top-row-left">
+          <Logo />
+          <BackLink onBack={onBack} />
+        </div>
         <span className="live">
           <i />
           <span className="clock">{clockText}</span>

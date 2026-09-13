@@ -14,12 +14,19 @@ export default function App() {
           setMinutes(chosenMinutes);
           setScreen("session");
         }}
+        onBack={() => setScreen("landing")}
       />
     );
   }
 
   if (screen === "session") {
-    return <Session minutes={minutes} onStop={() => setScreen("landing")} />;
+    return (
+      <Session
+        minutes={minutes}
+        onStop={() => setScreen("landing")}
+        onBack={() => setScreen("landing")}
+      />
+    );
   }
 
   return <Landing onStart={() => setScreen("setup")} />;

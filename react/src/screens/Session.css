@@ -1,8 +1,17 @@
 .top-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
+}
+.top-row-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+.top-row .live {
+  margin-top: 4px;
 }
 .live {
   display: inline-flex;

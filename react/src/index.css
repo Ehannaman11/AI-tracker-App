@@ -79,6 +79,34 @@ body {
   font-size: 19px;
 }
 
+/* ---- back-to-landing link (screens 2 & 3 only) ---- */
+.back-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.back-link:hover {
+  color: var(--ink);
+}
+.back-link:focus-visible {
+  outline: 2px solid var(--go);
+  outline-offset: 3px;
+}
+.back-link svg {
+  flex: none;
+}
+
 /* ---- shared buttons ---- */
 .btn {
   border: 0;

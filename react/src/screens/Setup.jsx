@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Logo from "../Logo.jsx";
+import BackLink from "../BackLink.jsx";
 import "./Setup.css";
 
 const OPTIONS = [
@@ -8,12 +9,13 @@ const OPTIONS = [
   { minutes: 0, name: "Variable", hint: "until I stop" },
 ];
 
-export default function Setup({ onGo }) {
+export default function Setup({ onGo, onBack }) {
   const [selected, setSelected] = useState(30);
 
   return (
     <div className="screen">
       <Logo />
+      <BackLink onBack={onBack} />
 
       <h2 className="s2-title">How long should I track?</h2>
       <p className="s2-sub">Tracking stops on its own when time runs out.</p>
