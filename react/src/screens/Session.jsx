@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Logo from "../Logo.jsx";
 import BackLink from "../BackLink.jsx";
 import "./Session.css";
@@ -17,36 +17,32 @@ function fmt(totalSeconds) {
   return `${m < 10 ? "0" : ""}${m}:${s < 10 ? "0" : ""}${s}`;
 }
 
-export default function Session({ minutes, onStop, onBack }) {
+export default function Session({
+  minutes,
+  elapsed,
+  tipIndex,
+  onTipIndexChange,
+  onStop,
+  onBack,
+}) {
   const isVariable = minutes === 0;
-  const [remaining, setRemaining] = useState(isVariable ? 0 : minutes * 60);
-  const [elapsed, setElapsed] = useState(0);
+  const remaining = isVariable ? 0 : Math.max(0, minutes * 60 - elapsed);
+  const clockText = isVariable ? fmt(elapsed) : fmt(remaining);
 
-  const [tipIndex, setTipIndex] = useState(0);
   const [checking, setChecking] = useState(false);
   const [fading, setFading] = useState(false);
   const done = tipIndex >= TIPS.length;
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setElapsed((e) => e + 1);
-      if (!isVariable) setRemaining((r) => Math.max(0, r - 1));
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [isVariable]);
 
   function completeTip() {
     if (fading || done) return;
     setChecking(true);
     setFading(true);
     setTimeout(() => {
-      setTipIndex((i) => i + 1);
+      onTipIndexChange(tipIndex + 1);
       setChecking(false);
       setFading(false);
     }, 210);
   }
-
-  const clockText = isVariable ? fmt(elapsed) : fmt(remaining);
 
   return (
     <div className="screen">

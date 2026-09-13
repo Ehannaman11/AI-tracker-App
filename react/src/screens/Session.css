@@ -76,7 +76,7 @@
 
 /* ---- "quick tip" pill ---- */
 .tipwrap {
-  margin: 0 0 auto;
+  margin: auto 0 0;
 }
 .tipcard {
   position: relative;
